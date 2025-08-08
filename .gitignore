@@ -1,0 +1,58 @@
+# ------------------------
+# OS-specific files
+# ------------------------
+.DS_Store
+Thumbs.db
+
+
+# ------------------------
+# Docker and containers
+# ------------------------
+Dockerfile
+docker-compose.yml
+*.tar
+*.img
+*.iso
+
+# ------------------------
+# Logs and temp
+# ------------------------
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp/
+.pnp.js
+.cache/
+.tmp/
+
+# ------------------------
+# IDE and editor files
+# ------------------------
+.vscode/
+.idea/
+*.swp
+
+# ------------------------
+# Large media files
+# ------------------------
+*.mp4
+*.mov
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.webp
+*.avi
+*.mkv
+
+# ------------------------
+# GitHub or local debugging
+# ------------------------
+*.tgz
+*.zip
+*.bak
+*.tmp
+*.orig
+highlight_generator/
+highlight_generator/
