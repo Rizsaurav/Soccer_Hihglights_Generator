@@ -1,0 +1,10 @@
+opencv-python
+numpy
+scikit-learn
+librosa
+pydub
+moviepy==1.0.3
+matplotlib
+fastapi
+psutil
+uvicorn[standard]

@@ -1,0 +1,10 @@
+__pycache__/
+*.mp4
+*.avi
+*.jpg
+*.DS_Store
+*.log
+output/
+data/frames/
+*.git
+venv/

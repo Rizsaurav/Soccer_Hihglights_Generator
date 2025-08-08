@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Video Highlight Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    input[type="file"] {
+      margin: 20px 0;
+    }
+
+    #message {
+      margin-top: 20px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <h1>Upload a Soccer Match Video</h1>
+  <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
+    <input type="file" name="video" accept="video/mp4" required />
+    <button type="submit">Generate Highlights</button>
+  </form>
+  
+  </form>
+
+  <div id="message"></div>
+  <video id="resultVideo" controls style="margin-top: 20px; display: none; max-width: 80%;"></video>
+
+  <script>
+    const form = document.getElementById('uploadForm');
+    const message = document.getElementById('message');
+    const video = document.getElementById('resultVideo');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      message.textContent = '⏳ Processing... Please wait.';
+      video.style.display = 'none';
+      video.src = '';
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch('/upload', {
+          method: 'POST',
+          body: formData
+        });
+
+        if (!response.ok) throw new Error(await response.text());
+
+        const blob = await response.blob();
+        const url = URL.createObjectURL(blob);
+        video.src = url;
+        video.style.display = 'block';
+        message.textContent = '✅ Highlight video ready!';
+      } catch (err) {
+        message.textContent = '❌ Error: ' + err.message;
+      }
+    });
+  </script>
+</body>
+</html>
